@@ -1,0 +1,194 @@
+{
+  "_comment": "General Ticketleo platform knowledge, sourced from ticketleo.co (about/contact pages). Edit freely — this whole file is injected into the agent's system prompt.",
+  "company": {
+    "name": "Ticketleo",
+    "tagline": "Your gateway to unforgettable experiences",
+    "description": "Ticketleo is a ticketing platform for discovering and booking tickets to concerts, festivals, sports and other live events. For some events Ticketleo handles checkout directly; for others it points buyers to the event organiser's own ticketing partner (Ticketmaster, Moshtix, Megatix, Ticketek, etc.).",
+    "website": "https://www.ticketleo.co",
+    "eventsPage": "https://www.ticketleo.co/events",
+    "contactEmail": "hello@ticketleo.co",
+    "supportHours": "Monday–Friday 9am–6pm, Saturday–Sunday 10am–4pm",
+    "termsUrl": "https://www.ticketleo.co/terms",
+    "privacyUrl": "https://www.ticketleo.co/privacy",
+    "socials": {
+      "facebook": "https://www.facebook.com/profile.php?id=100068059966980",
+      "instagram": "https://www.instagram.com/ticketleo.co",
+      "tiktok": "https://www.tiktok.com/@ticketleo.co"
+    }
+  },
+  "faqs": [
+    {
+      "q": "How do I purchase tickets?",
+      "a": "Browse the events page, select the event and city you want, choose your tickets, and complete checkout. Digital tickets are emailed instantly. For some tour dates, 'Buy tickets' redirects to the organiser's own ticketing partner (e.g. Ticketmaster, Moshtix, Megatix, Ticketek) rather than Ticketleo's own checkout — that's expected and safe."
+    },
+    {
+      "q": "Can I get a refund?",
+      "a": "Refund policies are set by the individual event organiser, not by Ticketleo directly. Check the specific event's details or contact hello@ticketleo.co and the team will help track down the right policy/process for that booking."
+    },
+    {
+      "q": "How do I access my tickets?",
+      "a": "Tickets are emailed after purchase and also available in your Ticketleo account dashboard. Show the QR code at the venue for entry. If a show's tickets are sold via an external partner (Ticketmaster, Moshtix, etc.), tickets are managed through that partner's account/app instead."
+    },
+    {
+      "q": "I want to host an event on Ticketleo, how do I get started?",
+      "a": "Email hello@ticketleo.co — the team will walk you through event setup, which includes tools for selling tickets, real-time sales analytics, QR check-in, and fast payouts."
+    },
+    {
+      "q": "Are there hidden fees?",
+      "a": "Ticketleo advertises no hidden fees and secure, encrypted payments on its own checkout. Fee structures on external partner platforms (Ticketmaster, Moshtix, etc.) are set by that partner."
+    },
+    {
+      "q": "Can I transfer or share a ticket?",
+      "a": "Yes, for tickets bought directly through Ticketleo — tickets can be shared/transferred to another account. For tickets bought via an external partner, use that partner's transfer process."
+    }
+  ],
+  "escalation": {
+    "instructions": "If a question involves a specific order, payment, refund decision, account access issue, or anything requiring personal/order data the agent doesn't have, do NOT guess or invent an answer — hand off to a human instead.\n\nAlways escalate rather than answer from the FAQ when the enquiry involves: payment completed but no ticket received; a duplicate/double payment; an incorrect email address on the order; an invalid or already-scanned QR code; accessibility or medical arrangements; a companion/support-person request; a VIP inclusion dispute; verifying a previous or rescheduled ticket; a refund request; a report of fraud or an unofficial/unauthorised seller; an incorrect ticket category; a minor-entry exception or group-booking request; a sponsorship, media or business enquiry; or any safety, security or complaint issue.\n\nTreat anything happening at the gate right now — a ticket not scanning, a safety concern, a missing child, accessibility needed at entry — as urgent: prioritise getting the person to a human immediately rather than working through the usual FAQ steps.\n\nWhen handing off, only ask for what's needed: full name, the email used for the order, mobile number, order number, ticket category, a short description of the issue, and a screenshot if relevant. Never ask for, or repeat back, a password, card PIN, full card number, or online banking login details.\n\nOtherwise, direct the user to email hello@ticketleo.co (response within ~24h) or note the support hours, and offer to help with anything else in the meantime.\n\nAvoid promises that can't be backed up — never tell someone a ticket is 'definitely reserved', that a refund will 'definitely' be approved, that they can bring anything through security, that parking will definitely be available, or state an exact performance start time as guaranteed."
+  },
+  "eventFaqs": [
+    {
+      "_comment": "Sourced from Sushant_KC_Sydney_Interactive_Chatbot_FAQ_new.pdf (uploaded by the maintainer, supersedes the older Sushant_KC_Sydney_Chatbot_FAQ.pdf). This is TicketLeo/event ops' internal chatbot planning document — many answers there are marked 'Operational note: Confirm before publishing' because the underlying policy (exact bag size, transfer settings, accepted ID list, parking arrangements, etc.) isn't finalised yet. Those items are phrased here with hedging language ('may', 'is being confirmed') rather than asserted as fact, matching the source doc's own guidance to give a holding response rather than guess. As each area gets finalised (see the doc's Pre-Launch Operations Checklist), replace the hedged wording below with the confirmed specifics. These answers are specific to the Sydney show's venue, gate times, and policies — do NOT apply them to other cities on the tour (Perth, Brisbane, Adelaide, Melbourne, Auckland), which have different venues, organisers, and ticket platforms. Where this overlaps with the general faqs above (e.g. refunds, buying tickets), prefer this more specific version for Sydney questions.",
+      "appliesTo": "Sushant KC – Live in Sydney only",
+      "tourId": "sushant-kc-au-nz-2026",
+      "city": "Sydney",
+      "items": [
+        { "category": "Tickets", "q": "Where can I buy tickets?", "a": "Only through the official TicketLeo event page: https://www.ticketleo.co/events/sushant-kc-live-in-sydney. Avoid unofficial websites, social media sellers and unknown resellers." },
+        { "category": "Tickets", "q": "Are tickets still available?", "a": "Availability changes with the live release. If tickets show as available on the event page you can buy immediately, though allocations may be limited; if a release sells out, the next release may open at a different price; if the event itself sells out, join the official waitlist in case more tickets are released." },
+        { "category": "Tickets", "q": "What are the ticket prices?", "a": "Price depends on the ticket category and release available at the time you buy — the final price, booking fee and any payment charges are shown before you confirm payment. General Admission currently starts from AUD $89.99." },
+        { "category": "Tickets", "q": "Why did the ticket price increase?", "a": "Tickets are sold in allocations — once one sells out, the next may open at a higher price. Being on the waitlist or having the ticket page open doesn't lock in a price." },
+        { "category": "Tickets", "q": "Does putting a ticket in my cart reserve it?", "a": "No — a ticket is only confirmed once payment is completed and you receive an order confirmation. Cart holds are temporary and can be released to another buyer if they expire." },
+        { "category": "Tickets", "q": "How many tickets can I purchase?", "a": "A purchase limit may apply per transaction or customer — the current limit is shown on the checkout page." },
+        { "category": "Tickets", "q": "Can I buy tickets at the venue on the day?", "a": "Door sales will only happen if tickets remain unsold, and they're not guaranteed — it's safer to buy online in advance." },
+        { "category": "Tickets", "q": "Can I buy tickets for someone else?", "a": "Yes, you can buy for family or friends. Each attendee needs their own valid ticket and QR code, since each QR code can only be scanned once." },
+
+        { "category": "Waitlist", "q": "What is the waitlist?", "a": "The waitlist lets you register interest when tickets aren't available, are limited, or the event is sold out. Joining it doesn't mean you've purchased a ticket." },
+        { "category": "Waitlist", "q": "Does joining the waitlist guarantee a ticket?", "a": "No — the waitlist doesn't guarantee, reserve, or confirm a ticket. A ticket is only confirmed after payment and an official TicketLeo order confirmation." },
+        { "category": "Waitlist", "q": "I joined the waitlist — what happens next?", "a": "If you're offered access, you'll get an email or SMS with a purchase link, usually valid for a limited time and still subject to availability." },
+        { "category": "Waitlist", "q": "I received waitlist access — is my ticket confirmed?", "a": "Not yet — it's an opportunity to purchase. You need to complete checkout and payment before your access window expires." },
+        { "category": "Waitlist", "q": "What happens if I don't use my waitlist access in time?", "a": "Your priority access can expire, the link can stop working, and any unclaimed tickets may be released into the next allocation — possibly at a different price." },
+        { "category": "Waitlist", "q": "I joined the waitlist but never got an email.", "a": "Check spam, junk and promotions folders, confirm the email address you used, make sure your inbox isn't full, and search for 'TicketLeo' or 'Sushant KC'. Invitations go out in stages and aren't guaranteed for everyone." },
+        { "category": "Waitlist", "q": "Can I use someone else's waitlist link?", "a": "Waitlist links are tied to the email, phone number or account they were sent to — use the link sent directly to you rather than a friend's." },
+
+        { "category": "Ticket delivery", "q": "How do I know my purchase went through?", "a": "A successful purchase gives you an order confirmation page, a confirmation email, an order number, and a ticket/QR code. A bank transaction alone doesn't confirm a ticket was issued." },
+        { "category": "Ticket delivery", "q": "I paid but haven't received my ticket.", "a": "First check your inbox, spam, junk and promotions folders and search for 'TicketLeo' or 'Sushant KC' — also confirm the payment actually completed rather than showing as pending. If it's still missing after a few minutes, contact support with your full name, the email and mobile number used, roughly when you paid, the amount, and your order number if you have it. Never send a full card number or banking password." },
+        { "category": "Ticket delivery", "q": "Can you resend my ticket?", "a": "Yes — you can request a resend using the email address you checked out with, and order details are only shown after verification." },
+        { "category": "Ticket delivery", "q": "I entered the wrong email at checkout.", "a": "Contact TicketLeo support as soon as possible with the purchaser's name, the incorrect email, the correct email, mobile number, payment reference and order number — extra identity verification may be needed." },
+        { "category": "Ticket delivery", "q": "Can I show my ticket on my phone?", "a": "Yes — increase your screen brightness, keep the QR code clear and have each attendee's ticket ready before you reach the scanner. Only share a screenshot with the person actually using that ticket." },
+        { "category": "Ticket delivery", "q": "Do I need to print my ticket?", "a": "Not generally, as long as the QR code is clearly visible on your phone — a printed copy is fine as a backup if you'd like one." },
+        { "category": "Ticket delivery", "q": "My QR code won't open.", "a": "Try refreshing the page, re-downloading the ticket, opening it from the original email, switching browsers, or disabling content/ad blockers, then save a screenshot once it loads. Contact support before you arrive if it's still not working." },
+
+        { "category": "Payments", "q": "What payment methods are accepted?", "a": "Accepted methods are shown at checkout." },
+        { "category": "Payments", "q": "Why was my payment declined?", "a": "Common causes are insufficient funds, incorrect card details, an expired card, bank security holds, transaction or international limits, incorrect billing info, or too many repeated attempts. Try contacting your bank or using a different payment method." },
+        { "category": "Payments", "q": "My payment shows as pending — do I have a ticket?", "a": "A pending transaction doesn't always mean the order completed. Look for an official TicketLeo order confirmation; if you don't have one, contact support before trying to pay again." },
+        { "category": "Payments", "q": "I was charged twice.", "a": "Don't make another purchase. Send support both transaction amounts, dates/times, your name, the purchase email, order number and a screenshot — no need to share your full card number or account balance." },
+        { "category": "Payments", "q": "Are there booking fees?", "a": "Any applicable booking and payment fees are shown before you confirm payment, so you can review the total first." },
+        { "category": "Payments", "q": "Can I pay by bank transfer or cash?", "a": "Only use the payment methods on the official TicketLeo checkout — don't transfer money to a personal account unless TicketLeo has formally confirmed that arrangement." },
+
+        { "category": "Event schedule", "q": "When is the Sydney concert?", "a": "Saturday, 5 September 2026." },
+        { "category": "Event schedule", "q": "Where is the concert?", "a": "The Crescent, Parramatta Park, Sydney." },
+        { "category": "Event schedule", "q": "What time do the gates open?", "a": "Gates are planned to open at approximately 5:00 PM — allow extra time for transport, security, ticket scanning and wristbanding." },
+        { "category": "Event schedule", "q": "What time does Sushant KC perform?", "a": "The main show is planned for approximately 7:00 PM–10:00 PM. The exact running order may be confirmed closer to the date, so don't plan your arrival around an estimated stage time." },
+        { "category": "Event schedule", "q": "What time should I arrive?", "a": "General Admission: arrive early to avoid queues and get your preferred spot. VIP: follow the dedicated instructions in your ticket/event email. Families: allow extra time for children's tickets and entry checks." },
+        { "category": "Event schedule", "q": "Will the event finish exactly at 10:00 PM?", "a": "10:00 PM is the scheduled finish, but live event timing can shift for production, safety or weather reasons." },
+        { "category": "Event schedule", "q": "Is it outdoors?", "a": "Yes, it's an outdoor event at The Crescent, Parramatta Park." },
+
+        { "category": "Children & families", "q": "Is the concert all ages?", "a": "Yes, it's planned as an all-ages event — attendees under 18 must meet the minor-entry requirements below." },
+        { "category": "Children & families", "q": "Do children need tickets?", "a": "Children aged 5 and above need a valid ticket. Children under 5 can enter free with a ticket-holding responsible adult." },
+        { "category": "Children & families", "q": "Can children under 5 attend free?", "a": "Yes, as long as they're with a responsible adult holding a valid ticket — bring proof of age if asked." },
+        { "category": "Children & families", "q": "Can someone under 18 attend without an adult?", "a": "No — attendees under 18 must be with a responsible adult who stays responsible for them for the whole event." },
+        { "category": "Children & families", "q": "Does the responsible adult need their own ticket?", "a": "Yes, every accompanying adult needs a valid ticket." },
+        { "category": "Children & families", "q": "Is this suitable for young children?", "a": "It's family-friendly but still a large outdoor concert with loud music, crowds, stage lighting, possible effects and extended standing. Consider hearing protection and keep a close eye on kids throughout." },
+        { "category": "Children & families", "q": "Can I bring a pram or stroller?", "a": "Prams may be allowed in designated areas but could be restricted in denser standing sections — the final policy will be confirmed closer to the event." },
+        { "category": "Children & families", "q": "Is there a family area?", "a": "Not yet confirmed — a family or low-density viewing area will only be promoted if it's included in the final approved site plan." },
+        { "category": "Children & families", "q": "Can I bring baby food or formula?", "a": "Yes, reasonable quantities of baby food, formula and essential infant items are fine — just present them to security at entry." },
+
+        { "category": "Entry, ID & security", "q": "What do I need to enter?", "a": "Bring a valid ticket with a clear QR code, ID if requested, a responsible adult if you're under 18, and any documentation needed for accessibility or medical items." },
+        { "category": "Entry, ID & security", "q": "Do I need ID?", "a": "It may be requested for age verification, alcohol service, VIP check-in, wristbanding, or if your age isn't clear." },
+        { "category": "Entry, ID & security", "q": "What ID is accepted?", "a": "Likely an Australian driver licence, an Australian or international passport, a NSW Photo Card, an approved digital driver licence, or another accepted government photo ID — the final accepted list is being confirmed with security, and photos/photocopies of ID won't be accepted." },
+        { "category": "Entry, ID & security", "q": "Will there be security screening?", "a": "Yes — expect ticket scanning, bag checks, security screening, age verification, wristbanding and prohibited-item checks." },
+        { "category": "Entry, ID & security", "q": "Why do people over 18 get a wristband?", "a": "It shows you've completed age verification, but it doesn't guarantee alcohol service — staff can still ask for ID or refuse service under responsible-service rules." },
+        { "category": "Entry, ID & security", "q": "Can I enter with a screenshot of my ticket?", "a": "Yes, as long as the QR code is valid and clearly visible. Each QR code only scans once, so don't share it publicly or with anyone else." },
+        { "category": "Entry, ID & security", "q": "My ticket says it's already been scanned.", "a": "Head to the Ticket Resolution or Box Office area with ID, your order confirmation, purchase email and payment verification — entry can't be guaranteed once a ticket's been used." },
+        { "category": "Entry, ID & security", "q": "Can I leave and come back in?", "a": "The re-entry/pass-out policy is still being finalised — don't leave unless staff confirm your ticket or wristband allows re-entry." },
+        { "category": "Entry, ID & security", "q": "Can security refuse me entry?", "a": "Yes — for an invalid or duplicated ticket, intoxication, aggressive or unsafe behaviour, refusing screening, carrying prohibited items, not meeting age/minor-supervision rules, or otherwise not complying with event conditions." },
+
+        { "category": "Previous / rescheduled tickets", "q": "Is my previously purchased Sydney ticket still valid?", "a": "If your earlier Sydney ticket was officially transferred to the new date, it remains valid for Saturday, 5 September 2026 — support can verify your specific order if needed." },
+        { "category": "Previous / rescheduled tickets", "q": "Do I need a new ticket after the date changed?", "a": "If your ticket was officially transferred, use the original or updated ticket TicketLeo provided — check your latest confirmation email before attending." },
+        { "category": "Previous / rescheduled tickets", "q": "My old ticket still shows the previous date.", "a": "Use the ticket-access link in your latest TicketLeo email. If it still shows the old date, contact support with your order number so they can check its status." },
+        { "category": "Previous / rescheduled tickets", "q": "Can I use both my original and replacement ticket?", "a": "No — only one valid ticket per attendee. Don't share both QR codes unless TicketLeo has confirmed they're separate valid tickets." },
+
+        { "category": "Refunds, cancellations & transfers", "q": "Can I get a refund because I changed my mind?", "a": "Tickets are generally non-refundable for change of mind, personal circumstances, transport issues or not attending — eligibility follows the event's terms, TicketLeo's terms and applicable consumer law." },
+        { "category": "Refunds, cancellations & transfers", "q": "What happens if the event is cancelled?", "a": "Official instructions go out to the email you purchased with — don't rely on unofficial social media posts for cancellation news." },
+        { "category": "Refunds, cancellations & transfers", "q": "What happens if the event is postponed or rescheduled?", "a": "Ticket holders get official info on the new date, whether their ticket stays valid, their options, and any relevant deadlines." },
+        { "category": "Refunds, cancellations & transfers", "q": "Can I transfer my ticket to someone else?", "a": "A standard ticket can usually be given to someone else without a name change. VIP, complimentary, promotional or identity-linked tickets may have extra conditions — check with support first for those categories." },
+        { "category": "Refunds, cancellations & transfers", "q": "Can I change the name on my ticket?", "a": "Usually not needed for standard tickets unless it's identity-linked — contact support before transferring VIP, promotional, partner or special-access tickets." },
+        { "category": "Refunds, cancellations & transfers", "q": "Can I resell my ticket?", "a": "Please don't use unauthorised resale sites or social media sellers — TicketLeo can't guarantee tickets bought outside the official platform." },
+        { "category": "Refunds, cancellations & transfers", "q": "I bought a ticket from someone on Facebook — is it valid?", "a": "TicketLeo can only verify tickets in its own official system. A screenshot, PDF or seller receipt doesn't guarantee entry, and it may be duplicated, cancelled or already used." },
+
+        { "category": "VIP experience", "q": "What's included in the VIP ticket?", "a": "Inclusions depend on the exact VIP package — possibly a dedicated viewing area, a separate entry lane, a VIP wristband, priority check-in, and any confirmed merchandise or extras. Check your specific ticket category for what's actually included rather than assuming." },
+        { "category": "VIP experience", "q": "Does VIP include a meet and greet?", "a": "Only if it's specifically listed in your ticket description — don't assume it's included." },
+        { "category": "VIP experience", "q": "Does VIP include reserved seating?", "a": "This is a standing event overall, so VIP isn't reserved seating unless a seated benefit is specifically confirmed for your ticket." },
+        { "category": "VIP experience", "q": "Is there a separate VIP entry?", "a": "A dedicated VIP entry or check-in lane may be provided, with final instructions sent closer to the event." },
+        { "category": "VIP experience", "q": "Can I upgrade my General Admission ticket to VIP?", "a": "That depends on live availability — check whether an upgrade option is currently active. There's no guaranteed refund or price adjustment on your original GA ticket." },
+
+        { "category": "Venue & transport", "q": "How do I get to Parramatta Park?", "a": "Public transport is recommended, with extra travel time built in — a detailed travel guide will be shared closer to the event once transport/road plans are finalised." },
+        { "category": "Venue & transport", "q": "Which train station should I use?", "a": "The best station depends on the final entry gate and transport plan, which will be confirmed in the official event travel guide closer to the date." },
+        { "category": "Venue & transport", "q": "Is parking available?", "a": "Parking around Parramatta Park may be limited, so don't count on parking right next to the venue — public transport, rideshare, carpooling or nearby public parking are safer bets." },
+        { "category": "Venue & transport", "q": "Is there accessible parking?", "a": "Accessible parking is being confirmed — please contact support in advance, since a space can't be guaranteed until it's allocated." },
+        { "category": "Venue & transport", "q": "Is there a drop-off/pick-up area?", "a": "A dedicated drop-off or rideshare zone may be set up closer to the event — follow on-the-day signage and traffic controller directions." },
+        { "category": "Venue & transport", "q": "Will roads around the venue be closed?", "a": "Possibly, due to event traffic management — live transport updates will be shared closer to the event." },
+
+        { "category": "Accessibility", "q": "Is the event accessible?", "a": "The organiser intends to support accessibility needs, but since it's an outdoor, mostly-standing event, it's best to contact support in advance so suitable arrangements can be discussed for your situation." },
+        { "category": "Accessibility", "q": "How do I request accessibility support?", "a": "Reach out to support with your name, order number, contact number, the type of assistance you need, whether a support person is attending, and any mobility, entry or viewing requirements — no need to share unnecessary medical details." },
+        { "category": "Accessibility", "q": "Is there an accessible viewing area?", "a": "One may be available for eligible attendees, subject to capacity and possibly pre-registration — details are being finalised." },
+        { "category": "Accessibility", "q": "Can I bring a support person or companion?", "a": "This depends on the approved companion policy (including Companion Card acceptance and whether a companion ticket needs to be issued in advance), which is still being confirmed — contact support ahead of the event." },
+        { "category": "Accessibility", "q": "Are accessible toilets available?", "a": "Yes, accessible toilets are expected, with locations shown on the final event map." },
+        { "category": "Accessibility", "q": "Can I bring medication or medical equipment?", "a": "Yes — necessary medication and medical equipment can be brought in and presented at screening. Keep medication in its original labelled packaging where possible, and contact accessibility support in advance for anything specialised." },
+
+        { "category": "Food, drink & facilities", "q": "Will food be available?", "a": "Yes, food vendors are planned — the final vendor list, menus and trading hours will be confirmed closer to the event." },
+        { "category": "Food, drink & facilities", "q": "Will there be Nepalese food?", "a": "Nepalese food vendors may be included — only contractually confirmed vendors will be announced." },
+        { "category": "Food, drink & facilities", "q": "Can I bring my own food?", "a": "Outside food is generally restricted, aside from reasonable dietary, medical or infant needs." },
+        { "category": "Food, drink & facilities", "q": "Can I bring water?", "a": "Empty reusable bottles may be allowed, with refill stations available — the exact sealed-bottle policy will be confirmed in the entry guide." },
+        { "category": "Food, drink & facilities", "q": "Will alcohol be available?", "a": "Licensed alcohol service may be available to attendees 18+, with valid ID and an 18+ wristband required, under responsible-service rules." },
+        { "category": "Food, drink & facilities", "q": "Are toilets available?", "a": "Yes — general and accessible toilet locations will be shown on the event map." },
+        { "category": "Food, drink & facilities", "q": "Is there a cloakroom?", "a": "Not yet confirmed — to be safe, avoid bringing large bags or valuable items." },
+        { "category": "Food, drink & facilities", "q": "Will merchandise be available?", "a": "Official merchandise may be available subject to stock — sizes, products and prices aren't guaranteed in advance." },
+
+        { "category": "Weather", "q": "What happens if it rains?", "a": "The event will likely continue through light or manageable rain unless the organiser or authorities say otherwise — keep an eye on official TicketLeo and event channels." },
+        { "category": "Weather", "q": "Can I bring an umbrella?", "a": "Large or pointed umbrellas may be restricted for crowd safety — a compact rain poncho is a safer bet. The final rule will be published in the prohibited-items guide." },
+        { "category": "Weather", "q": "What happens in severe weather?", "a": "Safety comes first — the organiser may delay, pause, modify, evacuate, postpone or cancel parts of the event if weather, emergency services or venue management require it. Follow staff instructions on the day." },
+        { "category": "Weather", "q": "Will there be shade?", "a": "Shade may be limited, so if you're arriving early, bring sun protection and stay hydrated." },
+
+        { "category": "Prohibited items", "q": "What can't I bring?", "a": "The finalised list is still being approved with the venue and security, but it's likely to include weapons, illegal substances, fireworks/flares, glass containers and outside alcohol, unapproved professional recording equipment, large banners/signs/laser pointers/large umbrellas, large or dangerous/sharp items, view-blocking items, chairs/furniture (unless permitted), drones/selfie sticks/poles, and animals other than approved assistance animals." },
+        { "category": "Prohibited items", "q": "Can I bring a camera?", "a": "Personal phones and small cameras are likely fine — professional cameras, detachable lenses, tripods, lighting or commercial recording gear may need approval in advance." },
+        { "category": "Prohibited items", "q": "Can I bring a chair or picnic blanket?", "a": "Since this is primarily a standing event, chairs are likely prohibited or limited to approved areas — the final policy is being confirmed." },
+        { "category": "Prohibited items", "q": "Can I bring a power bank?", "a": "Yes, small personal power banks are generally permitted." },
+        { "category": "Prohibited items", "q": "Can I bring a backpack?", "a": "Small bags are likely fine and will be inspected at entry — it's best to avoid large bags, as the exact size limits are still being confirmed." },
+        { "category": "Prohibited items", "q": "Can I bring cigarettes or a vape?", "a": "Only in designated smoking/vaping areas where provided, and subject to venue and NSW rules." },
+
+        { "category": "Partner offers", "q": "What offers are available for this show?", "a": "Sydney ticket holders may be eligible for three partner offers: a $100 Grace Education & Migration Services voucher, a $10 discount voucher from remittance partner United Pay Remit, and a free PTE mock test from Ultimate Language Academy (ULA) Sydney. Eligibility and redemption steps vary by offer, so check each one for its own details." },
+        { "category": "Partner offers", "q": "What's the United Pay Remit offer?", "a": "United Pay Remit — Legal, Secure, Fast — is Ticketleo's official remit partner for this tour, offering a $10 discount voucher. To claim it: download the United Pay Remit app, complete your KYC verification, and you'll receive your $10 voucher by email." },
+        { "category": "Partner offers", "q": "How do I download the United Pay Remit app?", "a": "It's available on the App Store and Google Play — search \"United Pay Remit\", or scan the QR code on the event's promotional material to go straight to the download." },
+        { "category": "Partner offers", "q": "Is the United Pay Remit voucher cash?", "a": "It's a $10 discount voucher for using United Pay Remit's remittance service after KYC verification, not cash or general spending money." },
+        { "category": "Partner offers", "q": "Is there a free PTE mock test offer?", "a": "Yes — Ticketleo has partnered with Ultimate Language Academy (ULA) Sydney to offer a free PTE mock test for Sydney show ticket holders. Exact booking steps are being finalised, so check ULA Sydney's Facebook page (facebook.com/ULAsydney) or contact them directly to book yours." },
+
+        { "category": "Grace $100 voucher", "q": "Does my Sydney ticket include a $100 Grace voucher?", "a": "Eligible customers who buy a valid Sydney ticket through TicketLeo may receive a $100 Grace Education & Migration Services voucher, subject to the campaign's terms." },
+        { "category": "Grace $100 voucher", "q": "Is the Grace voucher cash?", "a": "No — it can't be withdrawn, exchanged or used as general spending money. It only applies to eligible Grace services under the campaign terms." },
+        { "category": "Grace $100 voucher", "q": "Is every ticket eligible for the voucher?", "a": "Eligibility depends on the ticket category, purchase date, eligible services, expiry date, and whether it's limited to one per person/order — full terms will be confirmed." },
+        { "category": "Grace $100 voucher", "q": "How will I receive the voucher?", "a": "Eligible customers will get redemption instructions by email or through a verified process — details are being finalised." },
+        { "category": "Grace $100 voucher", "q": "Can I use the voucher for any visa or education service?", "a": "Use is subject to Grace's own eligibility, service and expiry conditions — it doesn't guarantee admission, enrolment, migration eligibility or a visa outcome." },
+
+        { "category": "Event-day support", "q": "Where do I go if my ticket won't scan?", "a": "Head to the clearly marked Ticket Resolution or Box Office area with ID, your order number and confirmation email." },
+        { "category": "Event-day support", "q": "Where do I collect my wristband?", "a": "Wristbands are issued after the required ticket and age checks — follow signage and staff directions on the day." },
+        { "category": "Event-day support", "q": "What if I lose my child or get separated from my group?", "a": "Speak to the nearest security, event staff or first-aid team immediately — don't leave the venue without telling staff first." },
+        { "category": "Event-day support", "q": "Is first aid available?", "a": "Yes, a medical/first-aid team will be on site — ask the nearest staff member. For a life-threatening emergency, call 000." },
+        { "category": "Event-day support", "q": "What if I lose my phone or belongings?", "a": "Report it at the event information or lost-property point. Avoid posting sensitive details publicly." },
+        { "category": "Event-day support", "q": "Can I charge my phone at the venue?", "a": "Best to arrive with a full charge and bring a permitted portable charger if you have one — whether charging stations will be available is still being confirmed." },
+
+        { "category": "General", "q": "Why should I buy now?", "a": "Ticket allocations are limited and prices can increase once a release sells out." },
+        { "category": "General", "q": "Who do I contact for ticket issues?", "a": "TicketLeo Support." },
+        { "category": "General", "q": "Who do I contact for event enquiries?", "a": "TRN Events, via their official channels." }
+      ]
+    }
+  ]
+}
