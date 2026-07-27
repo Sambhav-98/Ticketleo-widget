@@ -1,0 +1,85 @@
+{
+  "_comment": "Knowledge base of Ticketleo events. Add new tours/events as objects in this array — the agent's search_events tool reads this file directly, no code changes needed. Keep 'lastUpdated' current so the agent doesn't quote stale on-sale info.",
+  "lastUpdated": "2026-07-15",
+  "tours": [
+    {
+      "id": "sushant-kc-au-nz-2026",
+      "artist": "Sushant KC",
+      "tourName": "PAHUNA — Australia & New Zealand Tour 2026",
+      "tourPageUrl": "https://www.ticketleo.co/sushant-kc-au-nz-tour-2026",
+      "description": "Sushant KC's first Australia/NZ tour in years, performing fan favourites, Kathmandu stories and city-specific surprises across six shows.",
+      "presentedBy": ["MN Productions", "Garage Entertainment", "TRN Australia", "TRN Nepal"],
+      "shows": [
+        {
+          "city": "Perth",
+          "region": "WA",
+          "country": "Australia",
+          "date": "2026-08-16",
+          "status": "on sale",
+          "organiser": "Chatpate Events",
+          "organiserInstagram": "https://www.instagram.com/chatpateevents",
+          "ticketUrl": "https://megatix.com.au/events/sushant-kc-live-in-perth",
+          "ticketPlatform": "Megatix (external)"
+        },
+        {
+          "city": "Brisbane",
+          "region": "QLD",
+          "country": "Australia",
+          "date": "2026-08-19",
+          "status": "on sale",
+          "organiser": "KTM Events",
+          "organiserInstagram": "https://www.instagram.com/ktmevents.aus",
+          "ticketUrl": "https://www.ticketmaster.com.au/sushant-kc-live-in-brisbane-brisbane-19-08-2026/event/130064D1A6EF3640",
+          "ticketPlatform": "Ticketmaster (external)"
+        },
+        {
+          "city": "Adelaide",
+          "region": "SA",
+          "country": "Australia",
+          "date": "2026-08-21",
+          "status": "on sale",
+          "organiser": "Girish Event",
+          "organiserInstagram": "https://www.instagram.com/girish_event",
+          "ticketUrl": "https://www.moshtix.com.au/v2/event/sushant-kc-live-in-adelaide/196311",
+          "ticketPlatform": "Moshtix (external)"
+        },
+        {
+          "city": "Melbourne",
+          "region": "VIC",
+          "country": "Australia",
+          "date": "2026-08-24",
+          "status": "on sale",
+          "organiser": "NightEscape Events",
+          "organiserInstagram": "https://www.instagram.com/nightescape.events",
+          "ticketUrl": "https://tixort.au/event/nightescape-presents-sushant-kc-live-in-melbourne",
+          "ticketPlatform": "Tixort (external)"
+        },
+        {
+          "city": "Auckland",
+          "region": null,
+          "country": "New Zealand",
+          "date": "2026-08-30",
+          "status": "on sale",
+          "organiser": "House of Music",
+          "organiserInstagram": "https://www.instagram.com/house_of_music_ent.ltd",
+          "ticketUrl": "https://premier.ticketek.co.nz/shows/show.aspx?sh=SUSHANT26",
+          "ticketPlatform": "Ticketek NZ (external)"
+        },
+        {
+          "city": "Sydney",
+          "region": "NSW",
+          "country": "Australia",
+          "date": "2026-09-05",
+          "time": "3:00 PM - 10:00 PM",
+          "venue": "The Crescent, Parramatta Park, Byrnes Ave, Parramatta, NSW",
+          "status": "on sale",
+          "organiser": "TRN Events",
+          "organiserInstagram": "https://www.instagram.com/trnevents",
+          "ticketUrl": "https://www.ticketleo.co/events/sushant-kc-live-in-sydney",
+          "ticketPlatform": "Ticketleo (native checkout)",
+          "priceFrom": "AUD $89.99"
+        }
+      ]
+    }
+  ]
+}
