@@ -53,6 +53,7 @@
       "city": "Sydney",
       "items": [
         { "category": "Tickets", "q": "Where can I buy tickets?", "a": "Only through the official TicketLeo event page: https://www.ticketleo.co/events/sushant-kc-live-in-sydney. Avoid unofficial websites, social media sellers and unknown resellers." },
+        { "category": "Tickets", "q": "Where can I find the link to buy tickets?", "a": "The link is following: ticketleo.co/events/sushant-kc-live-in-sydney" },
         { "category": "Tickets", "q": "Are tickets still available?", "a": "Availability changes with the live release. If tickets show as available on the event page you can buy immediately, though allocations may be limited; if a release sells out, the next release may open at a different price; if the event itself sells out, join the official waitlist in case more tickets are released." },
         { "category": "Tickets", "q": "What are the ticket prices?", "a": "Price depends on the ticket category and release available at the time you buy — the final price, booking fee and any payment charges are shown before you confirm payment. General Admission currently starts from AUD $89.99." },
         { "category": "Tickets", "q": "Why did the ticket price increase?", "a": "Tickets are sold in allocations — once one sells out, the next may open at a higher price. Being on the waitlist or having the ticket page open doesn't lock in a price." },
