@@ -55,14 +55,14 @@
     + '--tlw-online:#22c55e;--tlw-font-display:\'Space Grotesk\',system-ui,sans-serif;--tlw-font-body:\'Inter\',system-ui,-apple-system,sans-serif;'
     + 'font-family:var(--tlw-font-body);}'
     + '.tlw-root *{box-sizing:border-box;}'
-    + '.tlw-launcher{position:fixed;right:24px;bottom:24px;width:58px;height:58px;border-radius:50%;background:linear-gradient(135deg,var(--tlw-accent-bright),var(--tlw-accent-dark));border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:25px;box-shadow:0 16px 32px -10px rgba(242,98,46,.55);z-index:2147483000;transition:transform .18s ease,opacity .18s ease;padding:0;}'
+    + '.tlw-launcher{position:fixed;right:24px;bottom:24px;width:88px;height:88px;border-radius:50%;background:linear-gradient(135deg,var(--tlw-accent-bright),var(--tlw-accent-dark));border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 16px 32px -10px rgba(242,98,46,.55);z-index:2147483000;transition:transform .18s ease,opacity .18s ease;padding:0;}'
     + '.tlw-launcher:active{transform:scale(.94);}'
     + '.tlw-launcher.tlw-hidden{opacity:0;pointer-events:none;transform:scale(.7);}'
     + '@keyframes tlw-launcher-pulse{0%{box-shadow:0 16px 32px -10px rgba(242,98,46,.55),0 0 0 0 rgba(242,98,46,.45);}70%{box-shadow:0 16px 32px -10px rgba(242,98,46,.55),0 0 0 14px rgba(242,98,46,0);}100%{box-shadow:0 16px 32px -10px rgba(242,98,46,.55),0 0 0 0 rgba(242,98,46,0);}}'
     + '.tlw-launcher.tlw-pulse{animation:tlw-launcher-pulse 2.1s ease-out infinite;}'
-    + '.tlw-tapme{position:fixed;right:88px;bottom:38px;display:flex;align-items:center;gap:5px;background:#fff;border:1px solid var(--tlw-border);border-radius:999px;padding:6px 12px;font-size:11.5px;font-weight:600;color:var(--tlw-text);white-space:nowrap;z-index:2147483000;box-shadow:0 10px 22px -10px rgba(20,20,30,.2);animation:tlw-tapme-bob 1.6s ease-in-out infinite;transition:opacity .2s ease;font-family:var(--tlw-font-body);}'
-    + '.tlw-tapme.tlw-hidden{opacity:0;pointer-events:none;}'
-    + '@keyframes tlw-tapme-bob{0%,100%{transform:translateY(0);}50%{transform:translateY(-3px);}}'
+    + '.tlw-launcher-ring{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;}'
+    + '.tlw-launcher-ring text{font-family:var(--tlw-font-display);font-weight:700;font-size:8.5px;letter-spacing:1.1px;fill:#fff;}'
+    + '.tlw-launcher-icon{position:relative;font-size:25px;line-height:1;pointer-events:none;}'
     + '.tlw-backdrop{display:none;position:fixed;inset:0;background:rgba(10,10,14,.45);opacity:0;pointer-events:none;transition:opacity .22s ease;z-index:2147482998;}'
     + '.tlw-backdrop.tlw-show{opacity:1;pointer-events:auto;}'
     + '.tlw-panel{position:fixed;right:24px;bottom:96px;width:380px;max-width:calc(100vw - 32px);height:600px;max-height:calc(100vh - 140px);background:var(--tlw-card);border:1px solid var(--tlw-border);border-radius:18px;box-shadow:0 26px 60px -24px rgba(15,15,25,.3);display:flex;flex-direction:column;overflow:hidden;z-index:2147482999;transform:translateY(14px) scale(.97);opacity:0;pointer-events:none;transition:transform .22s cubic-bezier(.22,.9,.32,1.05),opacity .18s ease,border-radius .2s ease;color:var(--tlw-text);}'
@@ -153,8 +153,13 @@
 
   // ---- markup ---------------------------------------------------------
   var HTML = ''
-    + '<div class="tlw-tapme" id="tlwTapme">Talk with me!</div>'
-    + '<button class="tlw-launcher tlw-pulse" id="tlwLauncher" aria-label="Open LEO chat" type="button">🦁</button>'
+    + '<button class="tlw-launcher tlw-pulse" id="tlwLauncher" aria-label="Talk with LEO" type="button">'
+    + '  <svg class="tlw-launcher-ring" viewBox="0 0 88 88" aria-hidden="true">'
+    + '    <defs><path id="tlwOrbitPath" d="M44,44 m -34,0 a 34,34 0 1,0 68,0 a 34,34 0 1,0 -68,0"/></defs>'
+    + '    <text><textPath href="#tlwOrbitPath" startOffset="0">TALK WITH LEO  •  TALK WITH LEO  •  </textPath></text>'
+    + '  </svg>'
+    + '  <span class="tlw-launcher-icon">🦁</span>'
+    + '</button>'
     + '<div class="tlw-backdrop" id="tlwBackdrop"></div>'
     + '<div class="tlw-panel" id="tlwPanel" data-view="menu" role="dialog" aria-label="LEO chat">'
     + '  <div class="tlw-panel-handle"></div>'
@@ -202,7 +207,6 @@
     document.body.appendChild(root);
 
     var launcher = root.querySelector('#tlwLauncher');
-    var tapme = root.querySelector('#tlwTapme');
     var backdrop = root.querySelector('#tlwBackdrop');
     var panel = root.querySelector('#tlwPanel');
     var panelClose = root.querySelector('#tlwClose');
@@ -236,16 +240,11 @@
 
     function isMobile() { return window.matchMedia('(max-width:640px)').matches; }
 
-    // No timed auto-dismiss: the tooltip and the launcher's pulse stay on
-    // screen until the visitor actually clicks the launcher (see openPanel).
-    function dismissTapme() { tapme.classList.add('tlw-hidden'); }
-
     function lockScroll(lock) {
       document.body.style.overflow = lock ? 'hidden' : '';
     }
 
     function openPanel() {
-      dismissTapme();
       launcher.classList.remove('tlw-pulse');
       launcher.classList.add('tlw-hidden');
       panel.classList.add('tlw-open');
