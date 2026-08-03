@@ -262,6 +262,8 @@
     function closeAll() {
       inputEl.blur();
       panel.classList.remove('tlw-open', 'tlw-kb-open');
+      panel.style.height = '';
+      panel.style.top = '';
       panel.dataset.view = 'menu';
       backdrop.classList.remove('tlw-show');
       launcher.classList.remove('tlw-hidden');
@@ -302,18 +304,37 @@
     // on-screen keyboard actually opened, so the panel only expands to
     // full height once that's confirmed, never as a guess made at focus
     // time (which was found to silently block the keyboard on real phones).
+    //
+    // On real mobile Chrome the keyboard shrinks the *visual* viewport
+    // while the *layout* viewport (what dvh/vh are based on) stays put,
+    // and the browser pans the page to keep the focused input on screen.
+    // A panel sized purely off dvh can end up taller than what's actually
+    // visible, so its header and message list get panned off-screen above
+    // the fold while only the input row (next to the focused field) stays
+    // visible — a blank-looking chat with just the composer showing. To
+    // avoid that, size and position the panel directly from
+    // visualViewport's live numbers (which inline styles override) once
+    // the keyboard is confirmed open, and drop back to the normal
+    // CSS-driven sizing once it closes.
     var layoutHeight = window.innerHeight;
+    function syncToViewport() {
+      var vv = window.visualViewport;
+      if (!vv) return;
+      var keyboardLikelyOpen = (layoutHeight - vv.height) > 120;
+      if (!keyboardLikelyOpen) { layoutHeight = window.innerHeight; }
+      if (isMobile() && isOpen && keyboardLikelyOpen) {
+        panel.classList.add('tlw-kb-open');
+        panel.style.height = vv.height + 'px';
+        panel.style.top = vv.offsetTop + 'px';
+      } else {
+        panel.classList.remove('tlw-kb-open');
+        panel.style.height = '';
+        panel.style.top = '';
+      }
+    }
     if (window.visualViewport) {
-      window.visualViewport.addEventListener('resize', function () {
-        var vv = window.visualViewport;
-        var keyboardLikelyOpen = (layoutHeight - vv.height) > 120;
-        if (!keyboardLikelyOpen) { layoutHeight = window.innerHeight; }
-        if (isMobile() && isOpen && keyboardLikelyOpen) {
-          panel.classList.add('tlw-kb-open');
-        } else {
-          panel.classList.remove('tlw-kb-open');
-        }
-      });
+      window.visualViewport.addEventListener('resize', syncToViewport);
+      window.visualViewport.addEventListener('scroll', syncToViewport);
     }
 
     // ---- rich text rendering (ported from index.html, same rules: the
