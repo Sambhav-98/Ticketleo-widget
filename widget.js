@@ -91,7 +91,13 @@
     + '.tlw-panel[data-view="chat"] .tlw-header-buy{display:flex;}'
     + '.tlw-header-buy svg{width:13px;height:13px;flex:none;}'
     + '.tlw-iconbtn svg{width:15px;height:15px;}'
-    + '.tlw-panel-body{flex:1;overflow-y:auto;min-height:0;}'
+    + '.tlw-panel-body{flex:1;overflow-y:auto;min-height:0;overflow-anchor:none;}'
+    + '.tlw-scroll-bottom{display:none;position:absolute;right:16px;bottom:76px;width:34px;height:34px;border-radius:50%;border:1px solid var(--tlw-border);background:var(--tlw-card);color:var(--tlw-text-muted);align-items:center;justify-content:center;cursor:pointer;padding:0;box-shadow:0 8px 20px -8px rgba(15,15,25,.28);z-index:5;opacity:0;transform:translateY(6px) scale(.9);transition:opacity .18s ease,transform .18s ease;}'
+    + '.tlw-panel[data-view="chat"] .tlw-scroll-bottom.tlw-show{display:flex;opacity:1;transform:translateY(0) scale(1);}'
+    + '.tlw-scroll-bottom:hover{color:var(--tlw-text);}'
+    + '.tlw-scroll-bottom svg{width:15px;height:15px;}'
+    + '.tlw-scroll-dot{display:none;position:absolute;top:-2px;right:-2px;width:10px;height:10px;border-radius:50%;background:var(--tlw-accent-bright);border:2px solid var(--tlw-card);}'
+    + '.tlw-scroll-dot.tlw-show{display:block;}'
     + '.tlw-panel-menu{padding:14px 16px 6px;}'
     + '.tlw-panel[data-view="chat"] .tlw-panel-menu{display:none;}'
     + '.tlw-greet{font-size:13px;line-height:1.55;color:var(--tlw-text);margin:0 0 4px;}'
@@ -186,6 +192,10 @@
     + '    </div>'
     + '    <div class="tlw-panel-chat" id="tlwPanelChat"></div>'
     + '  </div>'
+    + '  <button class="tlw-scroll-bottom" id="tlwScrollBottom" aria-label="Scroll to latest message" type="button">'
+    + '    <svg viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>'
+    + '    <span class="tlw-scroll-dot" id="tlwScrollDot"></span>'
+    + '  </button>'
     + '  <div class="tlw-input-row">'
     + '    <div class="tlw-input-box"><textarea id="tlwInput" rows="1" placeholder="Message LEO..."></textarea></div>'
     + '    <button class="tlw-send" id="tlwSend" aria-label="Send" type="button"><svg viewBox="0 0 24 24" fill="#fff"><path d="M3.4 20.6 21 12 3.4 3.4 3 10l12 2-12 2 .4 6.6Z"/></svg></button>'
@@ -221,8 +231,39 @@
     var newChatBtn = root.querySelector('#tlwNewChat');
     var grid = root.querySelector('#tlwGrid');
     var panelChat = root.querySelector('#tlwPanelChat');
+    var panelBody = root.querySelector('#tlwPanelBody');
+    var scrollBottomBtn = root.querySelector('#tlwScrollBottom');
+    var scrollDot = root.querySelector('#tlwScrollDot');
     var inputEl = root.querySelector('#tlwInput');
     var sendBtn = root.querySelector('#tlwSend');
+
+    // ---- Messenger/WhatsApp-style scroll behavior: follow the
+    // conversation automatically while the visitor is at (or near) the
+    // bottom, but never yank them down if they've scrolled up to read
+    // earlier messages — surface a "jump to latest" pill instead. --------
+    function isNearBottom() {
+      return (panelBody.scrollHeight - panelBody.scrollTop - panelBody.clientHeight) < 80;
+    }
+    function scrollToBottom(smooth) {
+      panelBody.scrollTo({ top: panelBody.scrollHeight, behavior: smooth ? 'smooth' : 'auto' });
+      scrollBottomBtn.classList.remove('tlw-show');
+      scrollDot.classList.remove('tlw-show');
+    }
+    function onNewRow(forceScroll) {
+      if (forceScroll || isNearBottom()) {
+        scrollToBottom(true);
+      } else {
+        scrollBottomBtn.classList.add('tlw-show');
+        scrollDot.classList.add('tlw-show');
+      }
+    }
+    panelBody.addEventListener('scroll', function () {
+      if (isNearBottom()) {
+        scrollBottomBtn.classList.remove('tlw-show');
+        scrollDot.classList.remove('tlw-show');
+      }
+    });
+    scrollBottomBtn.addEventListener('click', function () { scrollToBottom(true); });
 
     CATEGORIES.forEach(function (c) {
       var btn = document.createElement('button');
@@ -279,6 +320,8 @@
     function backToMenu() {
       panel.dataset.view = 'menu';
       lockScroll(false);
+      scrollBottomBtn.classList.remove('tlw-show');
+      scrollDot.classList.remove('tlw-show');
     }
 
     function startNewChat() {
@@ -289,6 +332,8 @@
       lockScroll(false);
       inputEl.value = '';
       autosize();
+      scrollBottomBtn.classList.remove('tlw-show');
+      scrollDot.classList.remove('tlw-show');
     }
 
     launcher.addEventListener('click', function () {
@@ -390,7 +435,7 @@
       bubble.textContent = text;
       row.appendChild(bubble);
       panelChat.appendChild(row);
-      panelChat.scrollTop = panelChat.scrollHeight;
+      onNewRow(true);
     }
 
     function addTypingRow() {
@@ -405,7 +450,7 @@
       row.appendChild(av);
       row.appendChild(bubble);
       panelChat.appendChild(row);
-      panelChat.scrollTop = panelChat.scrollHeight;
+      onNewRow(false);
       return bubble;
     }
 
@@ -421,7 +466,7 @@
       row.appendChild(av);
       row.appendChild(bubble);
       panelChat.appendChild(row);
-      panelChat.scrollTop = panelChat.scrollHeight;
+      onNewRow(false);
     }
 
     function autosize() {
