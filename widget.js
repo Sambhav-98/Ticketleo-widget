@@ -59,7 +59,7 @@
     + '.tlw-launcher:active{transform:scale(.94);}'
     + '.tlw-launcher.tlw-hidden{opacity:0;pointer-events:none;transform:scale(.7);}'
     + '@keyframes tlw-launcher-pulse{0%{box-shadow:0 16px 32px -10px rgba(242,98,46,.55),0 0 0 0 rgba(242,98,46,.45);}70%{box-shadow:0 16px 32px -10px rgba(242,98,46,.55),0 0 0 14px rgba(242,98,46,0);}100%{box-shadow:0 16px 32px -10px rgba(242,98,46,.55),0 0 0 0 rgba(242,98,46,0);}}'
-    + '.tlw-launcher.tlw-pulse{animation:tlw-launcher-pulse 2.1s ease-out 2;}'
+    + '.tlw-launcher.tlw-pulse{animation:tlw-launcher-pulse 2.1s ease-out infinite;}'
     + '.tlw-tapme{position:fixed;right:88px;bottom:38px;display:flex;align-items:center;gap:5px;background:#fff;border:1px solid var(--tlw-border);border-radius:999px;padding:6px 12px;font-size:11.5px;font-weight:600;color:var(--tlw-text);white-space:nowrap;z-index:2147483000;box-shadow:0 10px 22px -10px rgba(20,20,30,.2);animation:tlw-tapme-bob 1.6s ease-in-out infinite;transition:opacity .2s ease;font-family:var(--tlw-font-body);}'
     + '.tlw-tapme.tlw-hidden{opacity:0;pointer-events:none;}'
     + '@keyframes tlw-tapme-bob{0%,100%{transform:translateY(0);}50%{transform:translateY(-3px);}}'
@@ -153,7 +153,7 @@
 
   // ---- markup ---------------------------------------------------------
   var HTML = ''
-    + '<div class="tlw-tapme" id="tlwTapme">Tap me!</div>'
+    + '<div class="tlw-tapme" id="tlwTapme">Talk with me!</div>'
     + '<button class="tlw-launcher tlw-pulse" id="tlwLauncher" aria-label="Open LEO chat" type="button">🦁</button>'
     + '<div class="tlw-backdrop" id="tlwBackdrop"></div>'
     + '<div class="tlw-panel" id="tlwPanel" data-view="menu" role="dialog" aria-label="LEO chat">'
@@ -236,8 +236,9 @@
 
     function isMobile() { return window.matchMedia('(max-width:640px)').matches; }
 
+    // No timed auto-dismiss: the tooltip and the launcher's pulse stay on
+    // screen until the visitor actually clicks the launcher (see openPanel).
     function dismissTapme() { tapme.classList.add('tlw-hidden'); }
-    setTimeout(dismissTapme, 4500);
 
     function lockScroll(lock) {
       document.body.style.overflow = lock ? 'hidden' : '';
